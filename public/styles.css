@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box !important;
+}
+
+html, body, #root {
+  height: 100% !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+  background: #000;
+}
