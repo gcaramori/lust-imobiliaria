@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <Box id="mainContainer" py={30} px={40} h='100%' w='100%' overflowX='hidden'>
+    <Box id="mainContainer" h='100%' w='100%' overflowX='hidden'>
       <Navbar />
       <RouterProvider router={router} />
     </Box>
