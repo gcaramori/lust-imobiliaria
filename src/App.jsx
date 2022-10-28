@@ -23,7 +23,9 @@ const App = () => {
   return (
     <Box id="mainContainer" h='100%' w='100%' overflowX='hidden'>
       <Navbar />
-      <RouterProvider router={router} />
+      <Box h='100%' w='100%' pt={10}>
+        <RouterProvider router={router} />
+      </Box>
     </Box>
   )
 }
