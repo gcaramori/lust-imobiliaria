@@ -144,20 +144,41 @@ const Home = () => {
 
       <Box id="testimonialSection" h='100%' w='100%'>
         <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
-          <Heading as='h4' textAlign='center' fontSize={70} color='#fff' mb={8}>O que nossos clientes dizem</Heading>
-          <Flex w='100%' h='100%' justifyContent='center' alignItems='center'>
-            <Flex flexDir='column' justifyContent='center' alignItems='space-between' className='leftSide' position='relative' w='20%'>
-              <Box data-id='quentin' position='relative' h={{ '2xl': 20 }} w={{ '2xl': 20 }} borderRadius='full'>
-                <Image src='' alt='Quentin Tarantino' />
+          <Heading as='h4' textAlign='center' fontSize={70} color='#fff' mb={20}>O que nossos clientes dizem</Heading>
+          <Container display='flex' justifyContent='space-between' alignItems='center' id="home" h='100%' maxW='90%'>
+            <Flex flexDir='column' justifyContent='center' alignItems='space-between' className='leftSide' position='relative'>
+              <Box data-id='quentin' position='relative' h={{ '2xl': 24 }} w={{ '2xl': 24 }} borderRadius='100%' overflow='hidden' mb={24}>
+                <Image h='100%' w='100%' src='/assets/amy.png' alt='Amy' objectFit='contain' />
+              </Box>
+              <Box data-id='andrea' position='relative' left={32} h={{ '2xl': 20 }} w={{ '2xl': 20 }} borderRadius='100%' overflow='hidden' mb={32}>
+                <Image h='100%' w='100%' src='/assets/andrea.png' alt='Andrea' objectFit='contain' />
+              </Box>
+              <Box data-id='emily' position='relative' left={4} h={{ '2xl': 40 }} w={{ '2xl': 40 }} borderRadius='100%' overflow='hidden' mb={24}>
+                <Image h='100%' w='100%' src='/assets/emily.png' alt='Emily' objectFit='contain' />
               </Box>
             </Flex>
-            <Box className='center' w='60%'>
-
+            <Box className='center'>
+              <Flex w='100%' flexDir='column' justifyContent='center' alignItems='center' px={{ '2xl': 36 }}>
+                <Box data-id='sonya' position='relative' h={{ '2xl': 36 }} w={{ '2xl': 36 }} borderRadius='100%' overflow='hidden' mb={6}>
+                  <Image h='100%' w='100%' src='/assets/sonya.jpg' alt='Sonya' objectFit='contain' objectPosition='bottom' />
+                </Box>
+                <Text fonSize={20} color='#fff' maxW='80%' textAlign='center'>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
+                </Text>
+              </Flex>
             </Box>
-            <Box className='rightSide' w='20%'>
-              
+            <Box className='rightSide'>
+              <Box data-id='lawrence' position='relative' h={{ '2xl': 36 }} w={{ '2xl': 36 }} borderRadius='100%' overflow='hidden' mb={24} p={0} bg='gray.50'>
+                <Image h='100%' w='100%' src='/assets/lawrence.png' alt='Lawrence' objectFit='contain' objectPosition='bottom' />
+              </Box>
+              <Box data-id='leticia' position='relative' right={32} h={{ '2xl': 20 }} w={{ '2xl': 20 }} borderRadius='100%' overflow='hidden' mb={32} bg='gray.50'>
+                <Image h='100%' w='100%' src='/assets/leticia.png' alt='Leticia' objectFit='contain' />
+              </Box>
+              <Box data-id='matt' position='relative' left={4} h={{ '2xl': 24 }} w={{ '2xl': 24 }} borderRadius='100%' overflow='hidden' mb={24} bg='gray.50'>
+                <Image h='100%' w='100%' src='/assets/matt.png' alt='Matt' objectFit='contain' />
+              </Box>
             </Box>
-          </Flex>
+          </Container>
         </Box>
       </Box>
     </Container>
