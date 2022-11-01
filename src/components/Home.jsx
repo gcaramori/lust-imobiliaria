@@ -1,11 +1,85 @@
-import React, { Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, Spinner } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const Home = () => {
+  const [activeTestimonial, setActiveTestimonial] = useState('sonya');
+
+  const testimonials = [
+    {
+      id: 'amy',
+      image: '/assets/amy.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 24,
+      top: 0,
+      left: 0
+    },
+    {
+      id: 'andrea',
+      image: '/assets/andrea.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 20,
+      top: 52,
+      left: 20
+    },
+    {
+      id: 'emily',
+      image: '/assets/emily.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 40,
+      top: 96,
+      left: 1
+    },
+    {
+      id: 'lawrence',
+      image: '/assets/lawrence.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 20,
+      top: 0,
+      right: 1
+    },
+    {
+      id: 'leticia',
+      image: '/assets/leticia.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 24,
+      top: 52,
+      right: 20
+    },
+    {
+      id: 'matt',
+      image: '/assets/matt.png',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 32,
+      top: 96,
+      right: 1
+    },
+    {
+      id: 'sonya',
+      image: '/assets/sonya.jpg',
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      size: 20,
+      top: 0,
+      right: 0
+    }
+  ];
+
   const prevSlide = () => {
     
+  }
+
+  const handleTestimonial = (element) => {
+    const nextTestimonial = testimonials.find(testimonial => testimonial.id === element.target.parentNode.getAttribute('data-id'));
+    const prevTestimonialIndex = testimonials.findIndex((testimonial => testimonial.id === activeTestimonial));
+
+    testimonials[prevTestimonialIndex].top = nextTestimonial.top;
+    testimonials[prevTestimonialIndex].left = (nextTestimonial.left) ? nextTestimonial.left : 0;
+    testimonials[prevTestimonialIndex].right = (nextTestimonial.right) ? nextTestimonial.right : 0;
+
+    console.log(testimonials);
+
+    setActiveTestimonial(element.target.parentNode.getAttribute('data-id'));
   }
 
   return (
@@ -18,15 +92,15 @@ const Home = () => {
               <Heading as='h1' fontSize={60} color='#fff' fontWeight='600' mb={8}>
                 A CASA DOS SONHOS
               </Heading>
-              <Text color='#fff' fontSize={14}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+              <Text color='#fff' fontSize={16}>
+                O Residencial Edinburgh é um novo complexo de casas de luxo localizado no Soho, um dos melhores bairros de Nova York.
               </Text>
             </Box>
             <Box as={motion.div} initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear'>
               <HStack spacing={20} w='100%' h={{ '2xl': '280px' }} mt={24} align='flex-start'>
                 <Box>
                   <Text color='#fff' textAlign='left' fontSize={26}>
-                    180 VAN CORTLANDT <span style={{ display: 'block' }}>PARK S, THE BRONX,</span> NY 10463
+                    180 VAN CORTLANDT <span style={{ display: 'block' }}>PARK S, SOHO,</span> NY 10463
                   </Text>
                   <Button as='a' w='95%' mx='auto' bg='gray.50' mt={8} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>
                     <Text fontSize='md' color='#000'>AGENDE UMA VISITA</Text>
@@ -120,7 +194,7 @@ const Home = () => {
                 <Box w={{ '2xl': '70%' }} h={{ '2xl': '100px' }} p={4} bg='#fff' position='absolute' bottom={6} left='0' right='0' mx='auto' borderRadius='15px' boxShadow='lg'>
                   <Text fontSize={20} fontWeight='700' color='#000'>Thompson's House</Text>
                   <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
-                    <Text fontSize={16} fontWeight='500' color='gray.500'>1802, Central park, New York</Text>
+                    <Text fontSize={16} fontWeight='500' color='gray.500'>2312, Parker Rid, New York</Text>
                     <Text fontSize={14} p={2} bg='#000' borderRadius='10px' color='#fff'>$ 9000</Text>
                   </Flex>
                 </Box>
@@ -132,7 +206,7 @@ const Home = () => {
                 <Box w={{ '2xl': '70%' }} h={{ '2xl': '100px' }} p={4} bg='#fff' position='absolute' bottom={6} left='0' right='0' mx='auto' borderRadius='15px' boxShadow='lg'>
                   <Text fontSize={20} fontWeight='700' color='#000'>Johnson's House</Text>
                   <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
-                    <Text fontSize={16} fontWeight='500' color='gray.500'>4302, Salem's Lot, New York</Text>
+                    <Text fontSize={16} fontWeight='500' color='gray.500'>2312, Parker Rid, New York</Text>
                     <Text fontSize={14} p={2} bg='#000' borderRadius='10px' color='#fff'>$ 9000</Text>
                   </Flex>
                 </Box>
@@ -144,42 +218,27 @@ const Home = () => {
 
       <Box id="testimonialSection" h='100%' w='100%'>
         <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
-          <Heading as='h4' textAlign='center' fontSize={70} color='#fff' mb={20}>O que nossos clientes dizem</Heading>
-          <Container display='flex' justifyContent='space-between' alignItems='center' id="home" h='100%' maxW='90%'>
-            <Flex flexDir='column' justifyContent='center' alignItems='space-between' className='leftSide' position='relative'>
-              <Box data-id='quentin' position='relative' h={{ '2xl': 24 }} w={{ '2xl': 24 }} borderRadius='100%' overflow='hidden' mb={24}>
-                <Image h='100%' w='100%' src='/assets/amy.png' alt='Amy' objectFit='contain' />
-              </Box>
-              <Box data-id='andrea' position='relative' left={32} h={{ '2xl': 20 }} w={{ '2xl': 20 }} borderRadius='100%' overflow='hidden' mb={32}>
-                <Image h='100%' w='100%' src='/assets/andrea.png' alt='Andrea' objectFit='contain' />
-              </Box>
-              <Box data-id='emily' position='relative' left={4} h={{ '2xl': 40 }} w={{ '2xl': 40 }} borderRadius='100%' overflow='hidden' mb={24}>
-                <Image h='100%' w='100%' src='/assets/emily.png' alt='Emily' objectFit='contain' />
-              </Box>
-            </Flex>
-            <Box className='center'>
-              <Flex w='100%' flexDir='column' justifyContent='center' alignItems='center' px={{ '2xl': 36 }}>
-                <Box data-id='sonya' position='relative' h={{ '2xl': 36 }} w={{ '2xl': 36 }} borderRadius='100%' overflow='hidden' mb={6}>
-                  <Image h='100%' w='100%' src='/assets/sonya.jpg' alt='Sonya' objectFit='contain' objectPosition='bottom' />
-                </Box>
-                <Text fonSize={20} color='#fff' maxW='80%' textAlign='center'>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                </Text>
-              </Flex>
-            </Box>
-            <Box className='rightSide'>
-              <Box data-id='lawrence' position='relative' h={{ '2xl': 36 }} w={{ '2xl': 36 }} borderRadius='100%' overflow='hidden' mb={24} p={0} bg='gray.50'>
-                <Image h='100%' w='100%' src='/assets/lawrence.png' alt='Lawrence' objectFit='contain' objectPosition='bottom' />
-              </Box>
-              <Box data-id='leticia' position='relative' right={32} h={{ '2xl': 20 }} w={{ '2xl': 20 }} borderRadius='100%' overflow='hidden' mb={32} bg='gray.50'>
-                <Image h='100%' w='100%' src='/assets/leticia.png' alt='Leticia' objectFit='contain' />
-              </Box>
-              <Box data-id='matt' position='relative' left={4} h={{ '2xl': 24 }} w={{ '2xl': 24 }} borderRadius='100%' overflow='hidden' mb={24} bg='gray.50'>
-                <Image h='100%' w='100%' src='/assets/matt.png' alt='Matt' objectFit='contain' />
-              </Box>
-            </Box>
-          </Container>
+          <Heading as='h4' textAlign='center' fontSize={70} color='#fff' mb={14}>O que nossos clientes dizem</Heading>
         </Box>
+        <Container id="testimonials" display='flex' justifyContent='center' alignItems='space-between' h={{ '2xl': '60%' }} maxW='90%' position='relative'>
+          {
+              testimonials.map((testimonial, index) => {
+                  return (testimonial.id !== activeTestimonial) ? <Box key={index} data-id={testimonial.id} position='absolute' top={testimonial.top} left={testimonial.left} right={testimonial.right} h={testimonial.size} w={testimonial.size} borderRadius='100%' overflow='hidden' cursor='pointer' onClick={handleTestimonial}>
+                    <Image h='100%' w='100%' src={testimonial.image} alt={testimonial.id} objectFit='contain' />
+                  </Box> : ''
+              })
+          }
+          <Box className='activeTestimonial' position='absolute' insetY={0} insetX={0} m='auto' h={{ '2xl': '600px' }} maxW={{ '2xl': '800px' }}>
+            <Flex w='100%' h='100%' flexDir='column' justifyContent='center' alignItems='center'>
+              <Box data-id='sonya' position='relative' h={{ '2xl': 52 }} w={{ '2xl': 52 }} overflow='hidden' borderRadius='100%' mb={6}>
+                <Image h='100%' w='100%' src='/assets/sonya.jpg' alt='Sonya' objectFit='contain' objectPosition='bottom' />
+              </Box>
+              <Text fontSize={20} color='#fff' maxW='80%' textAlign='center'>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.
+              </Text>
+            </Flex>
+          </Box>
+        </Container>
       </Box>
     </Container>
   )
