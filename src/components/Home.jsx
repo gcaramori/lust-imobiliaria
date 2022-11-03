@@ -1,5 +1,5 @@
-import React, { useState, Suspense } from "react";
-import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, Spinner, Tooltip, Input } from '@chakra-ui/react';
+import React, { useState } from "react";
+import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, Tooltip, Input } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
@@ -125,9 +125,7 @@ const Home = () => {
 
           <Flex as={motion.div} initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear' h='80%' w='55%' justifyContent='center' align-items='center' position='relative'>
             <Box bg='#000' h='100%' w={{ '2xl': 10 }} position='absolute' top={0} right={10} zIndex='9'/>
-            <Suspense fallback={<Spinner />}> 
               <Image src='/assets/house1.webp' alt="house1" display='block' h='100%' w='auto' transform='translateX(100px)' objectFit='cover' />
-            </Suspense>
           </Flex>
         </Flex>
       </Box>
@@ -135,9 +133,7 @@ const Home = () => {
       <Box id="reputationSection" h='100%' w='100%'>
         <Flex w='100%' h='100%'>
           <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear' w='40%' mr={28}>
-            <Suspense fallback={<Spinner />}> 
-              <Image src='/assets/house2.webp' alt="house2" display='block' h={{ '2xl': '700px' }} w='auto' objectFit='cover' />
-            </Suspense>
+            <Image src='/assets/house2.webp' alt="house2" display='block' h={{ '2xl': '700px' }} w='auto' objectFit='cover' />
           </Box>
           <Box w='60%' as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
             <Heading as='h4' textAlign='left' fontSize={70} color='#fff' mb={8}>Nossa reputação é tão real quanto as nossas propriedades.</Heading>
@@ -182,9 +178,7 @@ const Home = () => {
         <Box h='100%' w='100%' as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
           <Flex w='100%' h='100%' justifyContent='space-evenly' alignItems='flex-start' gap={6} py={5}>
             <Box position='relative' h='85%' w='50%'>
-              <Suspense fallback={<Spinner />}> 
-                <Image src='/assets/house3.webp' h='100%' w='100%' alt='house3' objectFit='cover' />
-              </Suspense>
+              <Image src='/assets/house3.webp' h='100%' w='100%' alt='house3' objectFit='cover' />
               <Box w={{ '2xl': '70%' }} h={{ '2xl': '100px' }} p={4} bg='#fff' position='absolute' bottom={6} left='0' right='0' mx='auto' borderRadius='15px' boxShadow='lg'>
                 <Text fontSize={20} fontWeight='700' color='#000'>Macdowell's House</Text>
                 <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
@@ -195,9 +189,7 @@ const Home = () => {
             </Box>
             <Flex flexDir='column' justifyContent='center' alignItems='center' h='85%' w='50%' gap={6}>
               <Box position='relative' h='48%' w='100%'>
-                <Suspense fallback={<Spinner />}> 
-                  <Image src='/assets/house4.webp' h='100%' w='100%' alt='house4' objectFit='cover' />
-                </Suspense>
+                <Image src='/assets/house4.webp' h='100%' w='100%' alt='house4' objectFit='cover' />
                 <Box w={{ '2xl': '70%' }} h={{ '2xl': '100px' }} p={4} bg='#fff' position='absolute' bottom={6} left='0' right='0' mx='auto' borderRadius='15px' boxShadow='lg'>
                   <Text fontSize={20} fontWeight='700' color='#000'>Thompson's House</Text>
                   <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
@@ -207,9 +199,7 @@ const Home = () => {
                 </Box>
               </Box>
               <Box position='relative' h='48%' w='100%'>
-                <Suspense fallback={<Spinner />}> 
-                  <Image src='/assets/house5.webp' h='100%' w='100%' alt='house5' objectFit='cover' />
-                </Suspense>
+                <Image src='/assets/house5.webp' h='100%' w='100%' alt='house5' objectFit='cover' />
                 <Box w={{ '2xl': '70%' }} h={{ '2xl': '100px' }} p={4} bg='#fff' position='absolute' bottom={6} left='0' right='0' mx='auto' borderRadius='15px' boxShadow='lg'>
                   <Text fontSize={20} fontWeight='700' color='#000'>Johnson's House</Text>
                   <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
@@ -262,14 +252,14 @@ const Home = () => {
         </Flex>
         <Flex id="contactForm" justifyContent='space-between' alignItens='flex-start'>
           <Box w='40%'>
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite seu nome completo" fontSize={20} mb={10} />
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite seu apelido" fontSize={20} mb={10} />
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite seu telefone celular" fontSize={20} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite seu nome completo" fontSize={20} mb={10} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite seu apelido" fontSize={20} mb={10} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite seu telefone celular" fontSize={20} />
           </Box>
           <Box w='40%'>
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite seu email" fontSize={20} mb={10} />
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite seu gênero" fontSize={20} mb={10} />
-            <Input h={14} borderRadius='0' bg='#fff' placeholder="Digite sua data de nascimento" fontSize={20} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite seu email" fontSize={20} mb={10} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite seu gênero" fontSize={20} mb={10} />
+            <Input h={14} borderRadius='0' bg='#fff' color='gray.900' placeholder="Digite sua data de nascimento" fontSize={20} />
           </Box>
         </Flex>
       </Box>
