@@ -3,82 +3,89 @@ import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, Sp
 import { motion } from 'framer-motion';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const Home = () => {
-  const [activeTestimonial, setActiveTestimonial] = useState('sonya');
+const testimonials = [
+  {
+    id: 'amy',
+    image: '/assets/amy.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 24,
+    top: 0,
+    right: 'unset',
+    left: 0
+  },
+  {
+    id: 'andrea',
+    image: '/assets/andrea.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 20,
+    top: 52,
+    right: 'unset',
+    left: 20
+  },
+  {
+    id: 'emily',
+    image: '/assets/emily.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 40,
+    top: 96,
+    right: 'unset',
+    left: 1
+  },
+  {
+    id: 'lawrence',
+    image: '/assets/lawrence.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 20,
+    top: 0,
+    left: 'unset',
+    right: 1
+  },
+  {
+    id: 'leticia',
+    image: '/assets/leticia.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 24,
+    top: 52,
+    left: 'unset',
+    right: 20
+  },
+  {
+    id: 'matt',
+    image: '/assets/matt.png',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 32,
+    top: 96,
+    left: 'unset',
+    right: 1
+  },
+  {
+    id: 'sonya',
+    image: '/assets/sonya.jpg',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+    size: 20,
+    top: 0,
+    left: 'unset',
+    right: 0
+  }
+];
 
-  const testimonials = [
-    {
-      id: 'amy',
-      image: '/assets/amy.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 24,
-      top: 0,
-      left: 0
-    },
-    {
-      id: 'andrea',
-      image: '/assets/andrea.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 20,
-      top: 52,
-      left: 20
-    },
-    {
-      id: 'emily',
-      image: '/assets/emily.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 40,
-      top: 96,
-      left: 1
-    },
-    {
-      id: 'lawrence',
-      image: '/assets/lawrence.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 20,
-      top: 0,
-      right: 1
-    },
-    {
-      id: 'leticia',
-      image: '/assets/leticia.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 24,
-      top: 52,
-      right: 20
-    },
-    {
-      id: 'matt',
-      image: '/assets/matt.png',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 32,
-      top: 96,
-      right: 1
-    },
-    {
-      id: 'sonya',
-      image: '/assets/sonya.jpg',
-      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
-      size: 20,
-      top: 0,
-      right: 0
-    }
-  ];
+const Home = () => {
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(6);
+  const [activeTestimonial, setActiveTestimonial] = useState('sonya');
 
   const prevSlide = () => {
     
   }
 
   const handleTestimonial = (element) => {
-    const nextTestimonial = testimonials.find(testimonial => testimonial.id === element.target.parentNode.getAttribute('data-id'));
     const prevTestimonialIndex = testimonials.findIndex((testimonial => testimonial.id === activeTestimonial));
-
+    const nextTestimonial = testimonials.find(testimonial => testimonial.id === element.target.parentNode.getAttribute('data-id'));
+    
     testimonials[prevTestimonialIndex].top = nextTestimonial.top;
-    testimonials[prevTestimonialIndex].left = (nextTestimonial.left) ? nextTestimonial.left : 0;
-    testimonials[prevTestimonialIndex].right = (nextTestimonial.right) ? nextTestimonial.right : 0;
-
-    console.log(testimonials);
-
+    testimonials[prevTestimonialIndex].left = nextTestimonial.left;
+    testimonials[prevTestimonialIndex].right = nextTestimonial.right;
+    
+    setActiveTestimonialIndex(testimonials.findIndex(testimonial => testimonial.id === element.target.parentNode.getAttribute('data-id')));
     setActiveTestimonial(element.target.parentNode.getAttribute('data-id'));
   }
 
@@ -230,11 +237,14 @@ const Home = () => {
           }
           <Box className='activeTestimonial' position='absolute' insetY={0} insetX={0} m='auto' h={{ '2xl': '600px' }} maxW={{ '2xl': '800px' }}>
             <Flex w='100%' h='100%' flexDir='column' justifyContent='center' alignItems='center'>
-              <Box data-id='sonya' position='relative' h={{ '2xl': 52 }} w={{ '2xl': 52 }} overflow='hidden' borderRadius='100%' mb={6}>
-                <Image h='100%' w='100%' src='/assets/sonya.jpg' alt='Sonya' objectFit='contain' objectPosition='bottom' />
+              <Box data-id={testimonials[activeTestimonialIndex].id} position='relative' h={{ '2xl': 52 }} w={{ '2xl': 52 }} overflow='hidden' borderRadius='100%' mb={3}>
+                <Image h='100%' w='100%' src={testimonials[activeTestimonialIndex].image} alt='Sonya' objectFit='contain' objectPosition='bottom' />
               </Box>
+              <Text fontSize={18} textTransform='capitalize' color='#fff' mb={8} textAlign='center'>
+                {testimonials[activeTestimonialIndex].id}
+              </Text>
               <Text fontSize={20} color='#fff' maxW='80%' textAlign='center'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.
+                {testimonials[activeTestimonialIndex].text}
               </Text>
             </Flex>
           </Box>
