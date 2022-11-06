@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Box, Flex, Button, Text, Link } from '@chakra-ui/react';
 
-const Home = () => {
+const Navbar = () => {
     return (
       <Box position='sticky' top={0} left={0} bg='#000' zIndex='999' boxShadow='lg'>
         <Container id="navbar"  maxW='90%' centerContent>
@@ -30,4 +30,4 @@ const Home = () => {
     )
   }
   
-  export default Home;
+  export default Navbar;

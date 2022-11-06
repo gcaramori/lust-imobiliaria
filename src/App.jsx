@@ -4,7 +4,8 @@ import {
   RouterProvider
 } from "react-router-dom";
 import { Box } from '@chakra-ui/react';
-import Navbar from './components/Navbar';
+import Navbar from './components/includes/Navbar';
+import Footer from './components/includes/Footer';
 import Home from './components/Home';
 import Map from './components/Map';
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <Box id="mainContainer" h='100%' w='100%' overflowX='hidden'>
-      <Navbar />
+      <Navbar />  
       <Box h='100%' w='100%' pt={10}>
         <RouterProvider router={router} />
       </Box>
