@@ -238,7 +238,7 @@ const Home = () => {
                   <Text fontSize={18} textTransform='capitalize' color='#fff' mb={8} textAlign='center'>
                     {testimonials[activeTestimonialIndex].id}
                   </Text>
-                  <Text ffontSize={{ base: 'md', xl: 20 }} color='#fff' maxW='80%' textAlign='center'>
+                  <Text fontSize={{ base: 'md', xl: 20 }} color='#fff' maxW='80%' textAlign='center'>
                     {testimonials[activeTestimonialIndex].text}
                   </Text>
                 </Flex>
