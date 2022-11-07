@@ -10,7 +10,7 @@ const testimonials = [
     id: 'amy',
     image: '/assets/amy.png',
     text: "Eu adquiri uma propriedade recentemente, o residencial Edinburgh é maravilhoso! Meus filhos amam!",
-    size: 24,
+    size: (window.innerWidth > 770) ? 24 : 20,
     top: 0,
     right: 'unset',
     left: 0
@@ -19,19 +19,19 @@ const testimonials = [
     id: 'andrea',
     image: '/assets/andrea.png',
     text: "O que eu mais gosto no residencial Edinburgh é a segurança e a tranquilidade. Sem falar da localização que também é muito boa!",
-    size: 20,
+    size: (window.innerWidth > 770) ? 24 : 20,
     top: 52,
     right: 'unset',
-    left: 20
+    left: (window.innerWidth > 770) ? 20 : 0
   },
   {
     id: 'emily',
     image: '/assets/emily.png',
     text: "Eu nunca morei num lugar como esse. É simplesmente maravilhoso!",
-    size: 40,
+    size: (window.innerWidth > 770) ? 40 : 20,
     top: 96,
     right: 'unset',
-    left: 1
+    left: (window.innerWidth > 770) ? 1 : 0
   },
   {
     id: 'lawrence',
@@ -40,25 +40,25 @@ const testimonials = [
     size: 20,
     top: 0,
     left: 'unset',
-    right: 1
+    right: (window.innerWidth > 770) ? 1 : 0
   },
   {
     id: 'leticia',
     image: '/assets/leticia.png',
     text: "Estou amando morar no residencial Edinburgh!",
-    size: 24,
+    size: (window.innerWidth > 770) ? 24 : 20,
     top: 52,
     left: 'unset',
-    right: 20
+    right: (window.innerWidth > 770) ? 20 : 0
   },
   {
     id: 'matt',
     image: '/assets/matt.png',
     text: "Se eu pudesse traria toda a minha família para morar aqui, é maravilhoso!",
-    size: 32,
+    size: (window.innerWidth > 770) ? 32 : 20,
     top: 96,
     left: 'unset',
-    right: 1
+    right: (window.innerWidth > 770) ? 1 : 0
   },
   {
     id: 'sonya',
@@ -106,7 +106,7 @@ const Home = () => {
               </Text>
             </Box>
             <Box as={motion.div} initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear'>
-              <HStack spacing={{ 'md': 16, xl: 12, '2xl': 20 }} w='100%' h={{ base: '250px', '2xl': '280px' }} mt={{ base: 14, xl: 24 }} align='flex-start'>
+              <HStack spacing={{ 'md': 16, xl: 12, '2xl': 20 }} w='100%' h={{ base: '310px', '2xl': '280px' }} mt={{ base: 14, xl: 24 }} align='flex-start'>
                 <Box>
                   <Text color='#fff' textAlign='left' fontSize={26}>
                     180 VAN CORTLANDT <span style={{ display: 'block' }}>PARK S, SOHO,</span> NY 10463
@@ -117,14 +117,13 @@ const Home = () => {
                 </Box>
                 <Divider display={{ base: 'none', xl: 'block' }} orientation='vertical' mx={20} bg='#fff' />
                 <Box>
-                  <Heading color='#fff' as='h4' textAlign='justify' fontSize={{ lg: 70, xl: 75 }} wordBreak={{ base: 'normal', xl: 'break-word' }} maxW={{ base: 'unset', xl: '300px' }}>
+                  <Heading color='#fff' as='h4' textAlign='justify' fontSize={{ base: 70, xl: 75 }} wordBreak='break-word' maxW={{ base: '350px', xl: '300px' }}>
                     R$ 1.500.000,000
                   </Heading>
                 </Box>
               </HStack>
             </Box>
           </Box>
-
           <Flex as={motion.div} initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear' h={{ base: '400px', xl: '80%' }} w={{ base: '100%', xl: '55%' }} justifyContent='center' align-items='center' position='relative' overflow='hidden'>
             <Box display={{ base: 'none', xl: 'block' }} bg='#000' h='100%' w={{ base: 6, '2xl': 10 }} position='absolute' top={0} right={10} zIndex='9'/>
             <Image src='/assets/house1.webp' alt="house1" display='block' h='100%' w={{ base: '100%', xl: 'auto' }} transform={{ base: 'translateX(0)', xl: 'translateX(100px)' }} objectFit='cover' objectPosition={{ base: 'top', xl: 'center' }} />
@@ -133,11 +132,11 @@ const Home = () => {
       </Box>
 
       <Box id="reputationSection" h={{ base: 'auto', xl: '100%' }} w='100%' mt={{ base: 20, xl: 0 }} >
-        <Flex w='100%' h='100%'>
-          <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear' w={{ base: '50%', xl: '40%' }} mr={28}>
-            <Image src='/assets/house2.webp' alt="house2" display='block' h={{ base: '500px', xl: '700px' }} w='auto' objectFit='cover' />
+        <Flex w='100%' h='100%' flexDir={{ base: 'column', lg: 'row' }}>
+          <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear' h={{ base: '350px', lg: 'auto' }} w={{ base: '100%', lg: '50%', xl: '40%' }} mr={28} overflow='hidden' mb={{ base: 12, lg: 0 }}>
+            <Image src='/assets/house2.webp' alt="house2" display='block' h={{ base: 'auto', lg: '500px', xl: '700px' }} w='auto' objectFit='cover' />
           </Box>
-          <Box w={{ base: '50%', xl: '60%' }} as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
+          <Box w={{ base: '100%', lg: '50%', xl: '60%' }} as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
             <Heading as='h4' textAlign='left' fontSize={{ base: '4xl', xl: 62, '2xl': 70 }} color='#fff' mb={{ base: 4, xl: 8 }} >Nossa reputação é tão real quanto as nossas propriedades.</Heading>
             <Text fontSize={{ base: 'md', xl: 20 }} color='#fff'>
               Nós somos agentes imobiliários profissionais, você perceberá o serviço premium que nós oferecemos e que nossos clientes já experienciaram.
@@ -219,38 +218,38 @@ const Home = () => {
         <Box as={motion.div} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
           <Heading as='h4' textAlign='center' fontSize={{ base: '4xl', xl: 62, '2xl': 70 }}  color='#fff' mb={14}>O que nossos clientes dizem</Heading>
         </Box>
-        <Box as={motion.div} w='100%' h={{ base: '600px', xl: '55%', '2xl': '60%' }} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
-          <Container id="testimonials" display='flex' justifyContent='center' alignItems='space-between' h='100%' maxW={{ '2xl': '80%' }} position='relative'>
-              {
-                  testimonials.map((testimonial, index) => {
-                      return (testimonial.id !== activeTestimonial) ? <Box key={index} data-id={testimonial.id} position='absolute' top={testimonial.top} left={testimonial.left} right={testimonial.right} h={testimonial.size} w={testimonial.size} borderRadius='100%' overflow='hidden' cursor='pointer' onClick={handleTestimonial}>
-                        <Tooltip label='Clique para ver a avaliação' placement='top' bg='gray.50' color='gray.900'>
-                          <Image h='100%' w='100%' src={testimonial.image} alt={testimonial.id} objectFit='contain' />
-                        </Tooltip>
-                      </Box> : ''
-                  })
-              }
-              <Box className='activeTestimonial' position='absolute' insetY={0} insetX={0} m='auto' h={{ base: '450px', '2xl': '600px' }} maxW={{ base: '450px', xl: '600px', '2xl': '800px' }}>
-                <Flex w='100%' h='100%' flexDir='column' justifyContent='center' alignItems='center'>
-                  <Box data-id={testimonials[activeTestimonialIndex].id} position='relative' h={{ '2xl': 52 }} w={{ '2xl': 52 }} overflow='hidden' borderRadius='100%' mb={3}>
-                    <Image h='100%' w='100%' src={testimonials[activeTestimonialIndex].image} alt='Sonya' objectFit='contain' objectPosition='bottom' />
-                  </Box>
-                  <Text fontSize={18} textTransform='capitalize' color='#fff' mb={8} textAlign='center'>
-                    {testimonials[activeTestimonialIndex].id}
-                  </Text>
-                  <Text fontSize={{ base: 'md', xl: 20 }} color='#fff' maxW='80%' textAlign='center'>
-                    {testimonials[activeTestimonialIndex].text}
-                  </Text>
-                </Flex>
-              </Box>  
+        <Box as={motion.div} w='100%' h={{ base: '500px', lg: '600px', xl: '55%', '2xl': '60%' }} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
+          <Container id="testimonials" display='flex' justifyContent='center' alignItems='space-between' h='100%' maxW={{ lg: '80%' }} position='relative'>
+            {
+                testimonials.map((testimonial, index) => {
+                    return (testimonial.id !== activeTestimonial) ? <Box key={index} data-id={testimonial.id} position='absolute' top={testimonial.top} left={testimonial.left} right={testimonial.right} h={testimonial.size} w={testimonial.size} borderRadius='100%' overflow='hidden' cursor='pointer' onClick={handleTestimonial}>
+                      <Tooltip label='Clique para ver a avaliação' placement='top' bg='gray.50' color='gray.900'>
+                        <Image h='100%' w='100%' src={testimonial.image} alt={testimonial.id} objectFit='contain' />
+                      </Tooltip>
+                    </Box> : ''
+                })
+            }
+            <Box className='activeTestimonial' position='absolute' insetY={0} insetX={0} m='auto' h={{ base: '450px', '2xl': '600px' }} maxW={{ base: '380px', lg: '450px', xl: '600px', '2xl': '800px' }}>
+              <Flex w='100%' h='100%' flexDir='column' justifyContent='center' alignItems='center'>
+                <Box data-id={testimonials[activeTestimonialIndex].id} position='relative' h={{ base: 44, lg: 52 }} w={{ base: 44, lg: 52 }} overflow='hidden' borderRadius='100%' mb={3}>
+                  <Image h='100%' w='100%' src={testimonials[activeTestimonialIndex].image} alt='Sonya' objectFit='contain' objectPosition='bottom' />
+                </Box>
+                <Text fontSize={18} textTransform='capitalize' color='#fff' mb={8} textAlign='center'>
+                  {testimonials[activeTestimonialIndex].id}
+                </Text>
+                <Text fontSize={{ base: 'md', xl: 20 }} color='#fff' maxW='80%' textAlign='center'>
+                  {testimonials[activeTestimonialIndex].text}
+                </Text>
+              </Flex>
+            </Box>
           </Container>
         </Box>
       </Box>
 
       <Box id="contactSection" h='100%' w='100%' mt={{ base: 20, xl: 0 }}>
         <Box as={motion.div} w='100%' initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
-          <Flex justifyContent='space-between' alignItems='flex-start' mb={12}>
-            <Heading w={{ xl: '48%', '2xl': '40%' }} as='h4' textAlign='left' fontSize={{ base: 44, xl: 60 }} color='#fff' mb={14}>Interessado em alguma propriedade?</Heading>
+          <Flex justifyContent='space-between' alignItems='flex-start' mb={{ base: 6, xl: 12 }}>
+            <Heading w={{ base: '45%', xl: '48%', '2xl': '40%' }} as='h4' textAlign='left' fontSize={{ base: 44, xl: 60 }} color='#fff' mb={14}>Interessado em alguma propriedade?</Heading>
             <Text w={{ base: '45%', xl: '40%' }} fontSize={{ base: 'md', xl: 20 }} color='gray.300' textAlign='left'>Preencha o formulário para agendar uma visita ao residencial Edinburgh. Caso você tenha alguma dúvida, não hesite em nos enviar uma mensagem!</Text>
           </Flex>
         </Box>

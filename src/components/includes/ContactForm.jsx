@@ -38,8 +38,8 @@ const ContactForm = () => {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Flex id="contactForm" justifyContent='space-between' alignItems='flex-start'>
-                    <Box w='40%'>
+                <Flex id="contactForm" flexDir={{ base: 'column', md: 'row' }} justifyContent='space-between' alignItems='flex-start'>
+                    <Box w={{ base: '100%', md: '45%', lg: '40%' }}>
                         <FormControl isInvalid={errors.name} mb={10}>
                             <Input
                                 id='name'
@@ -94,7 +94,7 @@ const ContactForm = () => {
                             </FormErrorMessage>
                         </FormControl>
                     </Box>
-                    <Box w='40%'>
+                    <Box w={{ base: '100%', md: '45%', lg: '40%' }}>
                         <FormControl isInvalid={errors.email} mb={10}>
                             <Input
                                 id='email'
@@ -136,7 +136,7 @@ const ContactForm = () => {
                     </Box>
                 </Flex>
                 <Flex w='100%' justifyContent='center'>
-                    <Button mt={6} bg='#fff' color='gray.900' h={14} w={44} borderRadius={0} isLoading={isSubmitting} type='submit' _hover={{ bg: 'gray.200' }}>
+                    <Button mt={{ base: 2, lg: 6 }} bg='#fff' color='gray.900' h={14} w={44} borderRadius={0} isLoading={isSubmitting} type='submit' _hover={{ bg: 'gray.200' }}>
                         ENVIAR
                     </Button>
                 </Flex>
