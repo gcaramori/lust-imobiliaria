@@ -11,6 +11,9 @@ const config = {
         colorScheme: 'white',
       }
     }
+  },
+  breakpoints: {
+    sm: '26em'
   }
 }
 
