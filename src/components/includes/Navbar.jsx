@@ -43,7 +43,7 @@ const Navbar = () => {
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href="/map" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
+                    <Link href="/mapa" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
                       <Text color="#000" fontWeight='500'>MAPA</Text>
                     </Link>
                   </MenuItem>
