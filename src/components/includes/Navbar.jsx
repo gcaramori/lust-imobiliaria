@@ -48,7 +48,7 @@ const Navbar = () => {
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href="#" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
+                    <Link as={Button} id="scheduleVisit" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
                       <Text color="#000" fontWeight='500'>AGENDE UMA VISITA</Text>
                     </Link>
                   </MenuItem>
@@ -62,7 +62,7 @@ const Navbar = () => {
               <Link href="/como-funciona" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
                 <Text color="#fff" fontWeight='500'>COMO FUNCIONA</Text>
               </Link>
-              <Link href="/map" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
+              <Link href="/mapa" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
                 <Text color="#fff" fontWeight='500'>MAPA</Text>
               </Link>
               <Button id="scheduleVisit" bg='gray.50' borderRadius={0} py={8} ml={4} _hover={{ bg: ' gray.200' }}>
