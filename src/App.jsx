@@ -5,18 +5,22 @@ import {
 } from "react-router-dom";
 import { Box } from '@chakra-ui/react';
 import Navbar from './components/includes/Navbar';
-import Footer from './components/includes/Footer';
 import Home from './components/Home';
 import Map from './components/Map';
+import HowItWorks from './components/HowItWorks';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home />
   },
   {
     path: "/map",
-    element: <Map />,
+    element: <Map />
+  },
+  {
+    path: "/how-it-works",
+    lement: <HowItWorks />
   }
 ]);
 

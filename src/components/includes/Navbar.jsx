@@ -14,8 +14,9 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    handleResize();
     window.addEventListener("resize", handleResize);
-  }, []);
+  });
 
   return (
     <Box position='sticky' top={0} left={0} bg='#000' zIndex='999' boxShadow='lg'>

@@ -119,7 +119,7 @@ const Home = () => {
               </HStack>
             </Box>
           </Box>
-          <Flex as={motion.div} initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear' h={{ base: 'auto', md: '400px', xl: '80%' }} w={{ base: '100%', xl: '55%' }} justifyContent='center' align-items='center' position='relative' overflow='hidden'>
+          <Flex as={motion.div} initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear' h={{ base: 'auto', md: '400px', xl: '80%' }} w={{ base: '100%', xl: '55%' }} justifyContent='center' align-items='center' position='relative'>
             <Box display={{ base: 'none', xl: 'block' }} bg='#000' h='100%' w={{ base: 6, '2xl': 10 }} position='absolute' top={0} right={10} zIndex='9'/>
             <Image src='/assets/house1.webp' alt="house1" display='block' h='100%' w={{ base: '100%', xl: 'auto' }} transform={{ base: 'translateX(0)', xl: 'translateX(100px)' }} objectFit={{ base: 'contain', md: 'cover' }} objectPosition={{ base: 'top', xl: 'center' }} />
           </Flex>
