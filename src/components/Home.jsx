@@ -3,6 +3,7 @@ import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, To
 import { motion } from 'framer-motion';
 import ContactForm from "./includes/ContactForm";
 import Footer from './includes/Footer';
+import ScheduleButton from './includes/ScheduleButton';
 
 const testimonials = [
   {
@@ -106,9 +107,7 @@ const Home = () => {
                   <Text color='#fff' textAlign='left' fontSize={{ base: 20, md: 26 }}>
                     180 VAN CORTLANDT <span style={{ display: 'block' }}>PARK S, SOHO,</span> NY 10463
                   </Text>
-                  <Button as='a' w='95%' mx='auto' bg='gray.50' mt={{ base: 4, md: 8 }} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>
-                    <Text fontSize={{ base: 12, md: 'md' }} color='#000'>AGENDE UMA VISITA</Text>
-                  </Button>
+                  <ScheduleButton buttonStyle='headerButton' />
                 </Box>
                 <Divider display={{ base: 'none', xl: 'block' }} orientation='vertical' mx={20} bg='#fff' />
                 <Box>
@@ -136,9 +135,7 @@ const Home = () => {
             <Text fontSize={{ base: 'md', xl: 20 }} color='#fff'>
               Nós somos agentes imobiliários profissionais, você perceberá o serviço premium que nós oferecemos e que nossos clientes já experienciaram.
             </Text>
-            <Button as='a' w={{ base: '180px', xl: '250px' }} py={8} bg='gray.50' mt={8} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>
-              <Text fontSize={{ base: 'sm', xl: 'md' }} color='#000'>AGENDE UMA VISITA</Text>
-            </Button>
+            <ScheduleButton buttonStyle='priorityButton' />
             <Flex justifyContent='space-between' alignItems={{ base: 'flex-start', xl: 'center' }} gap={{ base: 3, sm: 6, md: 10 }} mt={14} color='#fff'>
               <Box>
                 <Heading as='h4' fontSize={{ base: 38, sm: 44, md: 50, xl: 60 }} fontWeight='800'>900+</Heading>

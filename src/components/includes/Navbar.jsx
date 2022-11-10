@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Box, Flex, Button, Text, Link, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
+import ScheduleButton from "./ScheduleButton";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -65,9 +66,7 @@ const Navbar = () => {
               <Link href="/mapa" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
                 <Text color="#fff" fontWeight='500'>MAPA</Text>
               </Link>
-              <Button id="scheduleVisit" bg='gray.50' borderRadius={0} py={8} ml={4} _hover={{ bg: ' gray.200' }}>
-                <Text color="#000" fontSize={14}>AGENDE UMA VISITA</Text>
-              </Button>
+              <ScheduleButton buttonStyle='navButton' />
             </Flex>
           }
         </Flex>
