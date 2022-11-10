@@ -205,7 +205,7 @@ const Home = () => {
         </Box>
         <Box as={motion.div} w='100%' h={{ base: '500px', lg: '600px', xl: '55%', '2xl': '60%' }} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} transition='1s linear'>
           <Container id="testimonials" display='flex' justifyContent='center' alignItems='space-between' h='100%' maxW={{ base: '100%', md: '80%' }} px={0} position='relative'>
-            <Box position='relative' w='auto' mr={{ base: 3, md: 0 }}>
+            <Box position='relative' w={{ base: 'auto', lg: '100%' }} mr={{ base: 3, md: 0 }}>
               {
                 testimonials.map((testimonial, index) => {
                   return (testimonial.id !== activeTestimonial) ? 

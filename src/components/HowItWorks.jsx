@@ -6,15 +6,25 @@ import Footer from './includes/Footer';
 const HowItWorks = () => {
   return (
     <Container id="howItWorks" h='100vh' maxW='90%'>
-      <Box id="mainSection" h='auto' w='100%'>
-        <Box as={motion.div} initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear'>
-            <Heading as='h1' fontSize={{ base: 50, md: 60 }} color='#fff' fontWeight='600' mb={8}>
-                
-            </Heading>
-            <Text color='#fff' fontSize={16}>
-            O Residencial Edinburgh é um novo complexo de casas de luxo localizado no Soho, um dos melhores bairros de Nova York.
-            </Text>
-        </Box>
+      <Box id="mainSection" h='100%' w='100%'>
+          <Flex flexDir={{ base: 'column', lg: 'row' }} justifyContent='space-between' alignItems='flex-start' h='80%' w='100%'>
+            <Box w='52%' h='100%'>
+              <Box as={motion.div} initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear' h='100%'>
+                <Image src='/assets/house6.jpg' alt="casa6" w='100%' h='100%' objectFit={{ lg: 'cover' }} />
+              </Box>
+            </Box>
+            <Box w='42%' h='100%'>
+              <Box as={motion.div} initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition='.6s linear'>
+                <Heading as='h1' textAlign='right' fontSize={{ base: 50, md: 60 }} color='#fff' fontWeight='600' mb={8}>COMO FUNCIONA?</Heading>
+                <Text fontSize={{ base: 16, md: 20 }} textAlign='justify'>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </Text>
+                <Button as='a' w='100%' mx='auto' bg='gray.50' mt={{ base: 6, md: 12 }} py={8} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>
+                  <Text fontSize={{ base: 12, md: 'lg' }} color='#000'>AGENDE UMA VISITA</Text>
+                </Button>
+              </Box>
+            </Box>
+          </Flex>
       </Box>
 
       <Footer />

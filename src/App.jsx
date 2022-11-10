@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/como-funciona",
-    lement: <HowItWorks />
+    element: <HowItWorks />
   }
 ]);
 
