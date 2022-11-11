@@ -7,7 +7,7 @@ const ScheduleButton = ({ buttonStyle }) => {
     
     const ButtonElement = ({ buttonStyle }) => {
         if(buttonStyle === 'headerButton') {
-            return <Button onClick={handleSchedule} as='a' w='95%' mx='auto' bg='gray.50' color='#000' mt={{ base: 4, md: 8 }} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>AGENDE UMA VISITA</Button>
+            return <Button onClick={handleSchedule} as='a' w='95%' mx='auto' bg='gray.50' color='#000' fontSize={{ base: 12, lg: 16 }} mt={{ base: 4, md: 8 }} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>AGENDE UMA VISITA</Button>
         }
         else if(buttonStyle === 'navButton') {
             return <Button onClick={handleSchedule} bg='gray.50' color='#000' borderRadius={0} py={8} ml={4} _hover={{ bg: ' gray.200' }}>AGENDE UMA VISITA</Button>
@@ -27,7 +27,7 @@ const ScheduleButton = ({ buttonStyle }) => {
         <>
             <ButtonElement buttonStyle={buttonStyle} />
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Agendar uma visita</ModalHeader>
