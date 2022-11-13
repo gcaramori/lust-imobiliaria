@@ -17,23 +17,37 @@ const ScheduleButton = ({ buttonStyle }) => {
                 <Text fontSize={{ base: 'sm', xl: 'md' }} color='#000'>AGENDE UMA VISITA</Text>
             </Button>
         }
+        else if(buttonStyle === 'navMobile') {
+            return <Button onClick={handleSchedule} fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
+                <Text color="#000" fontWeight='500'>AGENDE UMA VISITA</Text>
+            </Button>
+        }
+        else {
+            return <Button onClick={handleSchedule} as='a' w='100%' mx='auto' bg='gray.50' mt={{ base: 6, md: 12 }} py={8} borderRadius={0} boxShadow='lg' _hover={{ bg: 'gray.200' }} cursor='pointer'>
+                <Text fontSize={{ base: 'sm', xl: 'md' }} color='#000'>AGENDE UMA VISITA</Text>
+            </Button>
+        }
     }
 
     const handleSchedule = () => {
         onOpen();
     }
 
+    const handleCloseModal = isClosed => {
+        if(isClosed) onClose();
+    };
+
     return (
         <>
             <ButtonElement buttonStyle={buttonStyle} />
 
-            <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
+            <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'xs', md: 'md' }}>
                 <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Agendar uma visita</ModalHeader>
-                    <ModalCloseButton />
+                <ModalContent bg='gray.100'>
+                    <ModalHeader color='#000' pb={10}>Agendar uma visita</ModalHeader>
+                    <ModalCloseButton color='#000' />
                     <ModalBody>
-                        <Schedule />
+                        <Schedule handleCloseModal={handleCloseModal}/>
                     </ModalBody>
                 </ModalContent>
             </Modal>

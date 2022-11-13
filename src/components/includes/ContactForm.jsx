@@ -106,7 +106,8 @@ const ContactForm = () => {
                                 fontSize={20}
                                 {...register('email', {
                                     required: 'Este campo é requerido!',
-                                    minLength: { value: 7, message: 'Digite o email corretamente, por favor.' }
+                                    minLength: { value: 7, message: 'Digite o email corretamente, por favor.' },
+                                    pattern: { value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, message: 'Digite o email corretamente, por favor.' }
                                 })}
                             />
                             <FormErrorMessage>
@@ -126,7 +127,8 @@ const ContactForm = () => {
                                 fontSize={20}
                                 {...register('birth', {
                                     required: 'Este campo é requerido!',
-                                    minLength: { value: 7, message: 'Digite a data de nascimento corretamente, por favor.' }
+                                    minLength: { value: 7, message: 'Digite a data de nascimento corretamente, por favor.' },
+                                    pattern: { value: /^(\d{2})([-\/.]?)(\d{2})\2(\d{4})$/, message: 'Digite a data de nascimento corretamente, por favor.' }
                                 })}
                             />
                             <FormErrorMessage>

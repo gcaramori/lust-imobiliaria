@@ -49,9 +49,7 @@ const Navbar = () => {
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={Button} id="scheduleVisit" fontSize={14} mr={10} _hover={{ textDecoration: "none" }}>
-                      <Text color="#000" fontWeight='500'>AGENDE UMA VISITA</Text>
-                    </Link>
+                    <ScheduleButton buttonStyle='navMobile' />
                   </MenuItem>
                 </MenuList>
               </Menu>

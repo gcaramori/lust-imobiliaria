@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Flex, Text, Heading, Image, Divider, Container, Button, HStack, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, Image, Divider, Container, HStack, Tooltip } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import ContactForm from "./includes/ContactForm";
 import Footer from './includes/Footer';
