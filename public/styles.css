@@ -784,6 +784,10 @@ html, body, #root {
   background: #000;
 }
 
+.scheduleStep div[aria-current="step"] > span {
+  color: #fff;
+}
+
 @media (max-width: 550px) {
   .scheduleStep > div {
     margin-left: 0 !important;
